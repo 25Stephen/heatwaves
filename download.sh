@@ -18,7 +18,6 @@ for year in {1983..2016}; do
         echo "Failed to download $downloaded_file"
     fi
 done
-
 #for dt in Tmax Tmin; do
 #
 #    # Count the number of .nc files in the directory
