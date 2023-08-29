@@ -32,5 +32,6 @@ done
 #        cdo mergetime *Tmin.nc merged_Tmin.nc
 #    fi
 #done
+python3 calculation_hwn.py
 
 exit
