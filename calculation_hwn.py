@@ -88,3 +88,34 @@ for i,j in enumerate([0.62,0.13]):
 ### plt.suptitle('Climatologies and trends for HWN')
 fig.tight_layout()
 plt.savefig(path1+'/figures/graph1.jpeg', bbox_inches='tight')
+
+# tx90 = xr.open_dataset(path1+'/Tmax/chirts.Tmax90.1983.2016.WA.days_p25.nc').Tmax.sortby('time').drop_duplicates('time')
+tx = xr.open_dataset(path1+'/Tmax/chirts.Tmax.1983.2016.WA.days_p25.nc').Tmax.sortby('time').drop_duplicates('time').chunk({'time':20})
+tn = xr.open_dataset(path1+'/Tmin/chirts.Tmin.1983.2016.WA.days_p25.nc').Tmin.sortby('time').drop_duplicates('time').chunk({'time':20})
+
+fig, ax = plt.subplots(ncols = 3, nrows=1, figsize = (10,5), subplot_kw={'projection':crs.PlateCarree()})
+ax = ax.flatten()
+set_fig_params(ax)
+vmax = 8
+cm = 'YlOrRd'
+mask = xr.open_dataset('Tmax/tx-tx90.nc').chunk({'time':20}).Tmax
+mask = HWD(mask)
+cb = (mask.sel(time=slice('1983','2016')).sum('time')/30).plot(ax=ax[0],cmap = cm, add_colorbar=False, vmax = vmax) 
+ax[1].set_title('Tmax 1983 2016')
+
+mask = xr.open_dataset('Tmin/tn-tn90.nc').chunk({'time':20}).Tmin
+mask = HWD(mask)
+(mask.sel(time=slice('1983','2016')).sum('time')/30).plot(ax=ax[1],cmap = cm, add_colorbar=False, vmax=vmax) 
+ax[1].set_title('Tmin 1983 2016')
+
+mask = xr.open_dataset('Tmean/tm-tm90.nc').chunk({'time':20}).Tmax
+mask = HWD(mask)
+(mask.sel(time=slice('1983','2016')).sum('time')/30).plot(ax=ax[2],cmap = cm, add_colorbar=False, vmax=vmax) 
+ax[2].set_title('Tmean 1983 2016')
+
+cax = fig.add_axes([1,0.35,0.02,0.3])
+fig.colorbar(cb, cax=cax, orientation='vertical', extend = 'both')
+# # fig.colorbar(shrink=0.8)
+# ### plt.suptitle('Climatologies and trends for HWN')
+fig.tight_layout()
+plt.savefig(path1+'/figures/graph2.jpeg', bbox_inches='tight')
