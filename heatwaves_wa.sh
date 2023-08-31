@@ -4,6 +4,9 @@
 
 path1=/media/kenz/1B8D1A637BBA134B/CHIRTS
 
+#chmod u+w /media/kenz/1B8D1A637BBA134B/CHIRTS/
+# chmod u+w /media/kenz/1B8D1A637BBA134B/CHIRTS/Tmean/CHIRTS_Tmean_WA_1983_2016.nc
+
 tmax="${path1}/Tmax/chirts.Tmax.1983-2016.WA.days_p25.nc"
 tmin="${path1}/Tmin/chirts.Tmin.1983.2016.WA.days_p25.nc"
 
@@ -50,9 +53,7 @@ cdo mul ofile_ge0.nc "${path1}/EHFsig.nc" EHF.nc
 
 rm ofile_ge0.nc r3.nc r30.nc "${path1}/EHIaccl.nc" "${path1}/EHFsig.nc" 
 
-for dt in Tmax Tmin Tmean
-do
-
+# cdo sub EHF.nc 
 
 # -mul "${path1}/EHIaccl.nc" "${path1}/EHIsig.nc" -f nc "${path1}/EHF.nc"
  #### Call python3 to plot the graphs
