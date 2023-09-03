@@ -1,4 +1,4 @@
-# Climate Analysis Script
+# Heatwave Analysis Script
 
 This repository contains a Python script for climate analysis. The script is designed to analyze climate data, including temperature maxima (Tmax), temperature minima (Tmin), and the Excess Heat Factor (EHF), for the years 1983 to 2016. The analysis includes calculations of various climate indices and visualizations.
 
