@@ -18,19 +18,15 @@ for year in {1983..2016}; do
         echo "Failed to download $downloaded_file"
     fi
 done
-#for dt in Tmax Tmin; do
-#
-#    # Count the number of .nc files in the directory
-#    nc_file_count=$(find . -maxdepth 1 -name "chirts.${dt}*.nc" | wc -l)
-#
-#    # Check if the count is equal to 33
-#    if [ "$nc_file_count" -eq 33 ]; then
-#        # Merge Tmax files
-#        cdo mergetime *Tmax.nc merged_Tmax.nc
-#        # Merge Tmin files
-#        cdo mergetime *Tmin.nc merged_Tmin.nc
-#    fi
-#done
-python3 calculation_hwn.py
+### Count the number of .nc files in the directory  and Check if the count is equal to 33
 
+if [ -e $(find . -maxdepth 1 -name "chirts.${dt}*.nc" | wc -l) -eq 33 ]; then
+    
+    for dt in Tmax Tmin; do
+
+        cdo mergetime *${dt}.nc merged_${dt}.nc
+    done
+    
+   fi
+# python3 calculation_hwn.py
 exit
