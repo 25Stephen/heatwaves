@@ -1,5 +1,4 @@
 for year in {1983..2016}; do
-    #url="https://data.chc.ucsb.edu/products/CHIRPS-2.0/global_daily/netcdf/p05/chirps-v2.0.${year}.days_p05.nc"
     url="https://data.chc.ucsb.edu/products/CHIRTSdaily/v1.0/africa_netcdf_p05/Tmin.${year}.nc"
     downloaded_file="Tmin.${year}.nc"
     sliced_file="chirts.Tmin.${year}.WA.days_p05.nc"
