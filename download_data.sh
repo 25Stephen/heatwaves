@@ -27,5 +27,4 @@ if [ -e $(find . -maxdepth 1 -name "chirts.${dt}*.nc" | wc -l) -eq 33 ]; then
     done
     
    fi
-# python3 calculation_hwn.py
 exit
