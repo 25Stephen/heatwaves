@@ -55,6 +55,7 @@ rm ofile_ge0.nc r3.nc r30.nc "${path1}/EHIaccl.nc" "${path1}/EHFsig.nc"
 
 # cdo sub EHF.nc 
 
+
 # -mul "${path1}/EHIaccl.nc" "${path1}/EHIsig.nc" -f nc "${path1}/EHF.nc"
  #### Call python3 to plot the graphs
 
