@@ -40,8 +40,6 @@ do
     if [ -e "$output_file" ]; then
 
         cdo sub "$input_file" "$output_file" "${path1}/${dt}/${dt}-${dt}90.nc"
-
-
 done
 
 ## Calculate EHI_sig
