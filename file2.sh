@@ -1,6 +1,6 @@
 #!/bin/bash
 
-### This script computes the heatwave indices under considering etccdi standards ###
+### This script computes the heatwave indices ###
 
 path1=/media/kenz/1B8D1A637BBA134B/CHIRTS
 
