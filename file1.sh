@@ -1,3 +1,5 @@
+#### This scripts downloads the Maximum and Minimum Temperature from CHIRTS 
+#!/bin/bash
 for year in {1983..2016}; do
     url="https://data.chc.ucsb.edu/products/CHIRTSdaily/v1.0/africa_netcdf_p05/Tmin.${year}.nc"
     downloaded_file="Tmin.${year}.nc"
