@@ -1,5 +1,4 @@
 %%time
-
 import xarray as xr
 import matplotlib.pyplot as plt
 import cartopy as cp
